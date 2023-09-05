@@ -41,50 +41,87 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          Text(
-            'Escolha um nível',
-            style: Theme.of(context).textTheme.displaySmall,
+          Stack(
+            children: <Widget>[
+              Text(
+                'Escolha um nível',
+                style: TextStyle(
+                  fontSize: 35,
+                  foreground: Paint()
+                    ..style = PaintingStyle.stroke
+                    ..strokeWidth = 6
+                    ..color = Color.fromARGB(220, 240, 63, 122),
+                ),
+              ),
+              Text(
+                'Escolha um nível',
+                style: TextStyle(
+                  fontSize: 35,
+                  color: Colors.grey[200],
+                ),
+              ),
+            ],
           ),
-          const Wrap(
+          Wrap(
             spacing: 30.0,
             children: [
               OutlinedButton(
-                onPressed: null,
-                child: Text('Fácil'),
+                onPressed: () {},
+                child: const Text(
+                  'Fácil',
+                  style: TextStyle(color: Colors.blue, fontSize: 20),
+                ),
               ),
               OutlinedButton(
-                onPressed: null,
-                child: Text('Médio'),
+                onPressed: () {},
+                child: const Text(
+                  'Médio',
+                  style: TextStyle(
+                      color: Color.fromARGB(255, 206, 188, 28), fontSize: 20),
+                ),
               ),
               OutlinedButton(
-                onPressed: null,
-                child: Text('Difícil'),
+                onPressed: () {},
+                child: const Text(
+                  'Difícil',
+                  style: TextStyle(color: Colors.red, fontSize: 20),
+                ),
               )
             ],
           ),
           const ExpansionTile(
-            title: Text('Regra do jogo'),
+            title: Text(
+              'Regra do jogo',
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 25,
+                  color: Color.fromARGB(255, 233, 145, 14)),
+            ),
             children: [
               Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Text('Leia a cor que aparece e não a que está escrita'),
+                padding: EdgeInsets.all(10.0),
+                child: Text(
+                  'Leia a cor que aparece na tela e não a que está escrita.',
+                  style: TextStyle(fontSize: 18),
+                ),
               ),
             ],
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.green,
+              backgroundColor: Colors.grey[50],
             ),
-            onPressed: null,
-            child: Text(
+            onPressed: () {},
+            child: const Text(
               'JOGAR',
               style: TextStyle(
-                color: Colors.black,
-              ),
+                  color: Colors.green,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold),
             ),
-          )
+          ),
         ],
       ),
     );
