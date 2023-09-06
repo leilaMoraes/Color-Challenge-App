@@ -28,14 +28,14 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  void _incrementCounter() {
-    setState(() {});
-  }
+  int selectedButton = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[900],
       appBar: AppBar(
+        backgroundColor: Colors.grey[900],
         centerTitle: true,
         title: Text(
           widget.title,
@@ -77,34 +77,87 @@ class _MyHomePageState extends State<MyHomePage> {
                 'Escolha um nível',
                 style: TextStyle(
                   fontSize: 35,
-                  color: Colors.grey[200],
+                  color: Colors.grey[300],
                 ),
               ),
             ],
           ),
           Wrap(
-            spacing: 30.0,
+            spacing: 20.0,
             children: [
               OutlinedButton(
-                onPressed: () {},
+                style: OutlinedButton.styleFrom(
+                    backgroundColor: selectedButton == 1
+                        ? Colors.grey[900]
+                        : Colors.grey[300],
+                    side: const BorderSide(
+                      color: Colors.blue,
+                      width: 2,
+                    )),
+                onPressed: () {
+                  setState(() {
+                    selectedButton == 1
+                        ? selectedButton = 0
+                        : selectedButton = 1;
+                  });
+                },
                 child: const Text(
                   'Fácil',
-                  style: TextStyle(color: Colors.blue, fontSize: 20),
+                  style: TextStyle(
+                    color: Colors.blue,
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
               OutlinedButton(
-                onPressed: () {},
-                child: const Text(
+                style: OutlinedButton.styleFrom(
+                    backgroundColor: selectedButton == 2
+                        ? Colors.grey[900]
+                        : Colors.grey[300],
+                    side: const BorderSide(
+                      color: Color.fromARGB(255, 249, 168, 37),
+                      width: 2,
+                    )),
+                onPressed: () {
+                  setState(() {
+                    selectedButton == 2
+                        ? selectedButton = 0
+                        : selectedButton = 2;
+                  });
+                },
+                child: Text(
                   'Médio',
                   style: TextStyle(
-                      color: Color.fromARGB(255, 206, 188, 28), fontSize: 20),
+                    color: Colors.yellow[800],
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
               OutlinedButton(
-                onPressed: () {},
+                style: OutlinedButton.styleFrom(
+                    backgroundColor: selectedButton == 3
+                        ? Colors.grey[900]
+                        : Colors.grey[300],
+                    side: const BorderSide(
+                      color: Colors.red,
+                      width: 2,
+                    )),
+                onPressed: () {
+                  setState(() {
+                    selectedButton == 3
+                        ? selectedButton = 0
+                        : selectedButton = 3;
+                  });
+                },
                 child: const Text(
                   'Difícil',
-                  style: TextStyle(color: Colors.red, fontSize: 20),
+                  style: TextStyle(
+                    color: Colors.red,
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               )
             ],
@@ -115,14 +168,14 @@ class _MyHomePageState extends State<MyHomePage> {
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 25,
-                  color: Color.fromARGB(255, 233, 145, 14)),
+                  color: Colors.deepOrangeAccent),
             ),
             children: [
               Padding(
                 padding: EdgeInsets.all(10.0),
                 child: Text(
                   'Leia a cor que aparece na tela e não a que está escrita.',
-                  style: TextStyle(fontSize: 18),
+                  style: TextStyle(fontSize: 18, color: Colors.white),
                 ),
               ),
             ],
@@ -136,7 +189,7 @@ class _MyHomePageState extends State<MyHomePage> {
               'JOGAR',
               style: TextStyle(
                   color: Colors.green,
-                  fontSize: 20,
+                  fontSize: 30,
                   fontWeight: FontWeight.bold),
             ),
           ),
