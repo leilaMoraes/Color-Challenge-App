@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'dart:async';
 
 void main() {
@@ -100,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
   late Timer _timer;
 
   void startTimer() {
-    const duration = Duration(seconds: 3);
+    const duration = Duration(seconds: 2);
     _timer = Timer.periodic(duration, (timer) {
       setState(() {
         if (index < colorsList.length - 1) {
@@ -312,12 +311,8 @@ class _MyHomePageState extends State<MyHomePage> {
             Expanded(
               child: Text(
                 colorsList[index].word,
-                style: GoogleFonts.rubikMonoOne(
-                  textStyle: TextStyle(
-                      color: colorsList[index].color,
-                      fontSize: 30,
-                      height: 15.0),
-                ),
+                style: TextStyle(
+                    color: colorsList[index].color, fontSize: 70, height: 6.0),
               ),
             ),
           if (showButton)
